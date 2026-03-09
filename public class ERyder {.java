@@ -1,19 +1,16 @@
 public class ERyder {
-    // 成员变量
+
     private String bikeID;
     private int batteryLevel;
     private boolean isAvailable;
     private double kmDriven;
-
-    // 默认构造器
     public ERyder() {
         this.bikeID = "DEFAULT_ID";
         this.batteryLevel = 100;
         this.isAvailable = true;
         this.kmDriven = 0.0;
     }
-
-    // 全参数构造器
+    
     public ERyder(String bikeID, int batteryLevel, boolean isAvailable, double kmDriven) {
         this.bikeID = bikeID;
         setBatteryLevel(batteryLevel); // 使用setter进行合法性检查
@@ -21,7 +18,6 @@ public class ERyder {
         this.kmDriven = kmDriven;
     }
 
-    // ride() 方法
     public void ride() {
         if (isAvailable && batteryLevel > 0) {
             System.out.println("The bike is available for riding.");
@@ -30,7 +26,6 @@ public class ERyder {
         }
     }
 
-    // printBikeDetails() 方法
     public void printBikeDetails() {
         System.out.println("Bike ID: " + bikeID);
         System.out.println("Battery Level: " + batteryLevel + "%");
@@ -39,7 +34,6 @@ public class ERyder {
         System.out.println("----------------------------------------");
     }
 
-    // Getter 和 Setter
     public String getBikeID() {
         return bikeID;
     }
@@ -57,7 +51,7 @@ public class ERyder {
             this.batteryLevel = batteryLevel;
         } else {
             System.out.println("Invalid battery level. Must be between 0 and 100.");
-            this.batteryLevel = 0; // 非法值时设为0
+            this.batteryLevel = 0; 
         }
     }
 
@@ -78,15 +72,15 @@ public class ERyder {
     }
 }
 
-// Main 类
+
 class Main {
     public static void main(String[] args) {
-        // 使用默认构造器创建对象
+        
         ERyder defaultBike = new ERyder();
         System.out.println("Default Bike Details:");
         defaultBike.printBikeDetails();
 
-        // 使用全参数构造器创建对象
+       
         ERyder parameterBike = new ERyder("BIKE_001", 75, true, 125.5);
         System.out.println("Parameter Bike Ride Check:");
         parameterBike.ride();
