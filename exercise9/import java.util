@@ -1,0 +1,36 @@
+import java.util.List;
+
+public class UserService {
+    private RegisteredUsers registeredUsers;
+
+    public UserService(RegisteredUsers registeredUsers) {
+        this.registeredUsers = registeredUsers;
+    }
+
+    public boolean addUser(String userId, String userInfo) {
+        if (!registeredUsers.getUserMap().containsKey(userId)) {
+            registeredUsers.getUserMap().put(userId, userInfo);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeUser(String userId) {
+        if (registeredUsers.getUserMap().containsKey(userId)) {
+            registeredUsers.getUserMap().remove(userId);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateUser(String userId, String newUserInfo) {
+        if (registeredUsers.getUserMap().containsKey(userId)) {
+            registeredUsers.getUserMap().put(userId, newUserInfo);
+            return true;
+        }
+        return false;
+    }
+    public String retrieveUser(String userId) {
+        return registeredUsers.getUserMap().getOrDefault(userId, "User not found");
+    }
+}
